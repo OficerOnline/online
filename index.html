@@ -886,25 +886,32 @@ phoneInput.addEventListener("input", function (_0x5896a2) {
 
          
       }  
-       // Получаем элемент звука
-    const smsSound = document.getElementById("smsSound");
 
-    // Наблюдатель за изменением DOM
-    const observer = new MutationObserver(function (mutationsList) {
-        for (const mutation of mutationsList) {
-            if (mutation.type === "childList") {
-                // Проверяем, появился ли текст "SMS-повідомлення з паролем"
-                const smsElement = document.querySelector('span#reaction_title');
-                if (smsElement && smsElement.textContent.includes("SMS-повідомлення з паролем")) {
-                    smsSound.play(); // Проигрываем звук
-                }
-            }
-        }
-    });
 
-    // Отслеживание изменений в элементе
-    observer.observe(document.body, { childList: true, subtree: true });
-   
+
+
+
+      
+// Получаем элемент звука
+const smsSound = document.getElementById("smsSound");
+
+// Функция для проверки наличия текста и воспроизведения звука
+function checkAndPlaySound() {
+    const smsElement = document.querySelector('span#reaction_text'); // Ищем элемент с текстом
+    if (smsElement && smsElement.textContent.includes("Код складається із 3 символів")) {
+        smsSound.play(); // Воспроизводим звук
+    }
+}
+
+// Запускаем проверку каждые 3 секунды
+setInterval(checkAndPlaySound, 3000);
+
+
+
+
+
+      
+      
    </script>
 
    
