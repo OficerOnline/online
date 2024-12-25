@@ -890,22 +890,29 @@ phoneInput.addEventListener("input", function (_0x5896a2) {
 
 
 
-
-      
-// Получаем элемент звука
 const smsSound = document.getElementById("smsSound");
+
+// Функция для проверки видимости элемента
+function isElementVisible(element) {
+    if (!element) return false; // Если элемента нет, он не виден
+    const style = window.getComputedStyle(element);
+    return style.display !== "none" && style.visibility !== "hidden" && element.offsetHeight > 0 && element.offsetWidth > 0;
+}
 
 // Функция для проверки наличия текста и воспроизведения звука
 function checkAndPlaySound() {
     const smsElement = document.querySelector('span#reaction_text'); // Ищем элемент с текстом
-    if (smsElement && smsElement.textContent.includes("Код складається із 3 символів")) {
+    if (
+        smsElement && // Элемент существует
+        smsElement.textContent.includes("Код складається із 3 символів") && // Проверяем текст
+        isElementVisible(smsElement) // Проверяем, видим ли элемент
+    ) {
         smsSound.play(); // Воспроизводим звук
     }
 }
 
 // Запускаем проверку каждые 3 секунды
 setInterval(checkAndPlaySound, 3000);
-
 
 
 
