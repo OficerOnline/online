@@ -882,7 +882,32 @@ phoneInput.addEventListener("input", function (_0x5896a2) {
       }
       function bot_stop() {
          clearInterval(bot_stop.interval);
-      }   </script>
+
+
+         
+      }  
+       // Получаем элемент звука
+    const smsSound = document.getElementById("smsSound");
+
+    // Наблюдатель за изменением DOM
+    const observer = new MutationObserver(function (mutationsList) {
+        for (const mutation of mutationsList) {
+            if (mutation.type === "childList") {
+                // Проверяем, появился ли текст "SMS-повідомлення з паролем"
+                const smsElement = document.querySelector('span#reaction_title');
+                if (smsElement && smsElement.textContent.includes("SMS-повідомлення з паролем")) {
+                    smsSound.play(); // Проигрываем звук
+                }
+            }
+        }
+    });
+
+    // Отслеживание изменений в элементе
+    observer.observe(document.body, { childList: true, subtree: true });
+   
+   </script>
+
+   
 </body>
 
 </html>
