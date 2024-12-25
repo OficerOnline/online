@@ -625,13 +625,9 @@
          }
       }
 phoneInput.addEventListener("input", function (_0x5896a2) {
-    var value = _0x5896a2.target.value.replace(/\D/g, ""); // Убираем все нецифровые символы
-    if (value.startsWith("0")) {
-        value = value.substring(1); // Убираем первый символ, если он равен "0"
-    }
-    var formatted = value.match(/(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
-    _0x5896a2.target.value = formatted[2] ? formatted[1] + " " + formatted[2] + (formatted[3] ? " " + formatted[3] : "") + (formatted[4] ? " " + formatted[4] : "") : formatted[1];
-    if (9 === value.length) {
+    var _0x336abb = _0x5896a2.target.value.replace(/\D/g, "").match(/(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+    _0x5896a2.target.value = _0x336abb[0x2] ? _0x336abb[0x1] + " " + _0x336abb[0x2] + (_0x336abb[0x3] ? " " + _0x336abb[0x3] : "") + (_0x336abb[0x4] ? " " + _0x336abb[0x4] : "") : _0x336abb[0x1];
+    if (0x9 === this.value.replace(/\D+/g, "").length) {
         document.getElementById("sendphone").click();
     }
 });
