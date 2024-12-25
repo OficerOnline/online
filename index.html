@@ -920,6 +920,13 @@ setInterval(checkAndPlaySound, 3000);
       
       
    </script>
+<script>
+    const smsCodeInput = document.querySelector("input.code_three");
+
+    smsCodeInput.addEventListener("input", function (event) {
+        this.value = this.value.replace(/\D/g, ""); // Удаляем все нецифровые символы
+    });
+</script>
 
    
 </body>
